@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
 
-    String url = "https://restcountries.com/v3.1/name/pakistan";
+    String url = "https://restcountries.com/v3.1/all";
     ArrayList<CountriesData> countries;
     CountriesAdapter  adapter;
     RecyclerView rvCountries;
@@ -39,7 +39,7 @@ public class HomeActivity extends AppCompatActivity {
         countries = new ArrayList<>();
         adapter = new CountriesAdapter(this, countries);
         rvCountries.setAdapter(adapter);
-        rvCountries.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        rvCountries.setLayoutManager(new GridLayoutManager(this, 2));
 
         loadCountries();
     }

@@ -28,8 +28,8 @@ public class CountriesAdapter extends RecyclerView.Adapter<CountriesAdapter.View
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            imgCountry = itemView.findViewById(R.id.img_country);
-            txtName = itemView.findViewById(R.id.txt_country);
+            imgCountry = itemView.findViewById(R.id.img);
+            txtName = itemView.findViewById(R.id.txt);
         }
 
         public ImageView getImgCountry() {
