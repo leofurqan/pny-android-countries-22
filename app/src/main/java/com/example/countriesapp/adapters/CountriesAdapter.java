@@ -9,11 +9,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.countriesapp.CountryDetailActivity;
 import com.example.countriesapp.R;
 import com.example.countriesapp.data.CountriesData;
+import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
 
@@ -23,11 +26,13 @@ public class CountriesAdapter extends RecyclerView.Adapter<CountriesAdapter.View
     private ArrayList<CountriesData> countries;
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
+        MaterialCardView cardCountry;
         private ImageView imgCountry;
         private TextView txtName;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            cardCountry = itemView.findViewById(R.id.card_country);
             imgCountry = itemView.findViewById(R.id.img);
             txtName = itemView.findViewById(R.id.txt);
         }
@@ -38,6 +43,10 @@ public class CountriesAdapter extends RecyclerView.Adapter<CountriesAdapter.View
 
         public TextView getTxtName() {
             return txtName;
+        }
+
+        public MaterialCardView getCardCountry() {
+            return cardCountry;
         }
     }
 
@@ -58,6 +67,12 @@ public class CountriesAdapter extends RecyclerView.Adapter<CountriesAdapter.View
         CountriesData data = countries.get(position);
         Glide.with(context).load(data.getFlag()).into(holder.getImgCountry());
         holder.getTxtName().setText(data.getName());
+
+        holder.getCardCountry().setOnClickListener(v -> {
+            Intent intent = new Intent(context, CountryDetailActivity.class);
+            intent.putExtra("country", data);
+            context.startActivity(intent);
+        });
     }
 
     @Override

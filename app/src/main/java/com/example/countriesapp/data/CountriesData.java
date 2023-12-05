@@ -1,6 +1,9 @@
 package com.example.countriesapp.data;
 
-public class CountriesData {
+import java.io.Serial;
+import java.io.Serializable;
+
+public class CountriesData implements Serializable {
     private String name, full_name, currency, capital_name, region, sub_region, maps, flag;
     private double lat, lng, area, population;
     private String[] borders;
