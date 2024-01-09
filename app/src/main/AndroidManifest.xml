@@ -16,6 +16,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ProductsDetail"
+            android:exported="false" />
+        <activity
             android:name=".fragments.ProductsFragment"
             android:exported="false" />
         <activity
@@ -35,9 +38,7 @@
             android:exported="false" />
         <activity
             android:name=".PhoneActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".CountryDetailActivity"
             android:exported="false" />
@@ -46,7 +47,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

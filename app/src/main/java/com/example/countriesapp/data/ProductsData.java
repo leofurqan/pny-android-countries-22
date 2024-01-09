@@ -1,8 +1,10 @@
 package com.example.countriesapp.data;
 
-public class ProductsData {
+import java.io.Serializable;
+
+public class ProductsData implements Serializable {
     private int id;
-    private String name, price, image;
+    private String name, price, image, description;
 
     public int getId() {
         return id;
@@ -34,5 +36,13 @@ public class ProductsData {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
