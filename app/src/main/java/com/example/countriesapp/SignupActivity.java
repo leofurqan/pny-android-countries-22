@@ -17,6 +17,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.countriesapp.databinding.ActivitySignupBinding;
+import com.example.countriesapp.helpers.DBHelper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,15 +26,23 @@ public class SignupActivity extends AppCompatActivity {
 
     String url = "http://192.168.151.234/app/register.php";
     ActivitySignupBinding binding;
+    DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_signup);
 
+        dbHelper = new DBHelper(this);
+
         binding.btnRegister.setOnClickListener(v -> {
             if(validation()) {
-                saveUserData();
+//                saveUserData();
+                String username = binding.etUsername.getText().toString();
+                String email = binding.etEmail.getText().toString();
+                String phone = binding.etPhone.getText().toString();
+
+                dbHelper.insertUser(username, email, phone);
             }
         });
     }
